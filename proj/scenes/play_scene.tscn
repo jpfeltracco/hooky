@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scripts/fish_physics.gd" type="Script" id=1]
+[ext_resource path="res://imported_assets/fishPlayerImage.tex" type="Texture" id=2]
+
+[node name="play_scene" type="Node2D"]
+
+[node name="player_fish" type="Node2D" parent="."]
+
+transform/pos = Vector2( 42.6922, 171.331 )
+script/script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="player_fish"]
+
+transform/pos = Vector2( -0.945999, 1.71767 )
+texture = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="player_fish"]
+
+transform/pos = Vector2( -1.37984, 1.3085 )
+transform/scale = Vector2( 0.551961, 0.495829 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_fish/Area2D"]
+
+transform/pos = Vector2( 0.645144, 1.44701 )
+transform/scale = Vector2( 2.92198, 2.9827 )
+build_mode = 0
+polygon = Vector2Array(  )
+shape_range = Vector2( -1, -1 )
+trigger = false
+
+
