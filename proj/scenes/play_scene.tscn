@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/fish_physics.gd" type="Script" id=1]
 [ext_resource path="res://imported_assets/fishPlayerImage.tex" type="Texture" id=2]
+[ext_resource path="res://scripts/hook.gd" type="Script" id=3]
+[ext_resource path="res://imported_assets/fishingLineImage.tex" type="Texture" id=4]
+[ext_resource path="res://imported_assets/silverHookImage.tex" type="Texture" id=5]
 
 [node name="play_scene" type="Node2D"]
 
 [node name="player_fish" type="Node2D" parent="."]
 
-transform/pos = Vector2( 30.3151, 183.708 )
+transform/pos = Vector2( 30.3151, 183.746 )
 transform/scale = Vector2( 0.613217, 0.613217 )
 script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+JUMP_VEL = 200
 
 [node name="Sprite" type="Sprite" parent="player_fish"]
 
@@ -23,6 +27,33 @@ texture = ExtResource( 2 )
 
 transform/pos = Vector2( -1.37984, 1.3085 )
 transform/scale = Vector2( 0.551961, 0.495829 )
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="enemy_hook" type="Node2D" parent="."]
+
+transform/pos = Vector2( 114.556, 184.263 )
+script/script = ExtResource( 3 )
+MOV_VEL = 1275
+
+[node name="Sprite_line" type="Sprite" parent="enemy_hook"]
+
+transform/pos = Vector2( 2.37788, -248.39 )
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+
+[node name="Sprite_hook" type="Sprite" parent="enemy_hook"]
+
+transform/scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="enemy_hook"]
+
+transform/pos = Vector2( 0, 1 )
+transform/scale = Vector2( 0.15, 0.25 )
 input/pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

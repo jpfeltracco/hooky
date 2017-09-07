@@ -6,7 +6,8 @@ extends Node2D
 
 var cur_pos = Vector2()
 
-const JUMP_VEL = 200
+# export to make it editable in the editor
+export var JUMP_VEL = 200
 const GRAVITY = 100
 
 var velocity = 0.0
